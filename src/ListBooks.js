@@ -6,7 +6,6 @@ import SelectShelf from "./SelectShelf";
 class ListBooks extends React.Component {
   render() {
     const { books } = this.props;
-    console.log(">>>>>>>>>>>teste List", this.props);
 
     return (
       <ol className="books-grid">

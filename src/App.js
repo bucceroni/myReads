@@ -6,7 +6,10 @@ import './App.css'
 
 class BooksApp extends React.Component {
   state = {
-    books: [],
+    //books: [],
+    currentlyReading:[],
+    wantToRead:[],
+    read:[],
     /**
      * TODO: Instead of using this state variable to keep track of which page
      * we're on, use the URL in the browser's address bar. This will ensure that
@@ -18,14 +21,20 @@ class BooksApp extends React.Component {
 
 
 componentDidMount(){
+  //  BooksAPI.getAll().then((books) => {
+  //    this.setState({books})
+  // })
   BooksAPI.getAll().then((books) => {
-    this.setState({books})
+    this.setState({currentlyReading: books.filter((b) => b.shelf === "currentlyReading")})
+    this.setState({wantToRead: books.filter((b) => b.shelf === "wantToRead")})
+    this.setState({read: books.filter((b) => b.shelf === "read")})
   })
 }
 
 
+
   render() {
-    const {books} = this.state
+    const {currentlyReading, wantToRead, read} = this.state
 
     return (
       <div className="app">
@@ -60,19 +69,19 @@ componentDidMount(){
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
-                   <ListBooks books={books}/>
+                   <ListBooks books={currentlyReading}/>
                   </div>
                 </div>
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Want to Read</h2>
                   <div className="bookshelf-books">
-                  <ListBooks books={books}/>
+                  <ListBooks books={wantToRead} />
                   </div>
                 </div>
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">Read</h2>
                   <div className="bookshelf-books">
-                  <ListBooks books={books}/>
+                  <ListBooks books={read}/>
                   </div>
                 </div>
               </div>
