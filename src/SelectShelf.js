@@ -1,7 +1,15 @@
 import React from "react";
 
-const SelectShelf = (props) => {
-    return(
+class SelectShelf extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    const { id } = this.props;
+    console.log(">>>>>>>>>>>>>>>", id);
+
+    return (
       <select>
         <option value="none" disabled>
           Move to...
@@ -11,7 +19,8 @@ const SelectShelf = (props) => {
         <option value="read">Read</option>
         <option value="none">None</option>
       </select>
-    )
+    );
   }
+}
 
 export default SelectShelf;
