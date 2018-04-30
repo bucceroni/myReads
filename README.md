@@ -32,6 +32,8 @@ Estante de livros, permite o usuário selecionar e classificar os livros que leu
 * ReactDOM
 * React-Router
 * PropTypes
+* escape-string-regexp
+* sort-by
 
 ## Testes
 

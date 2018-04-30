@@ -4,20 +4,13 @@ import PropTypes from "prop-types";
 class ListBooks extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
-
-// handleChange(event, book){
-//   const shelf = event.target.value
-// this.props.selectShelf(book, shelf)
-// }
-
-handleChange= (bookId, shelf, e)=> {
-  const newShelf = e.target.value
-    this.props.selectShelf(bookId, newShelf)
-}
+  handleChange = (bookId, shelf, e) => {
+    const newShelf = e.target.value;
+    this.props.selectShelf(bookId, newShelf);
+  };
 
   render() {
     const { books } = this.props;
@@ -37,8 +30,10 @@ handleChange= (bookId, shelf, e)=> {
                   }}
                 />
                 <div className="book-shelf-changer">
-    
-                  <select value="" onChange={(e) => this.handleChange(book.id, book.shelf, e)}>
+                  <select
+                    value=""
+                    onChange={e => this.handleChange(book.id, book.shelf, e)}
+                  >
                     <option value="none" disabled>
                       Move to...
                     </option>
