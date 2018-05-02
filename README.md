@@ -32,17 +32,6 @@ Estante de livros, permite o usuário selecionar e classificar os livros que leu
 * ReactDOM
 * React-Router
 * PropTypes
-* escape-string-regexp
-* sort-by
 
-## Testes
-
-* Puppeter com Jest
-
-## Heroku
-
-* Visite a aplicação hospedada no [Heroku](https://www.heroku.com/), plataforma de serviço em nuvem (PaaS).
-* http://www.google.com
   <hr />
-  <center>Obrigado</center>
-  <center>04/2018</center>
+ 

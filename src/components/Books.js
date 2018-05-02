@@ -1,19 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class ListBooks extends React.Component {
+class Books extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-  }
-
-  handleChange = (bookId, shelf, e) => {
-    const newShelf = e.target.value;
-    this.props.selectShelf(bookId, newShelf);
-  };
+    }
 
   render() {
-    const { books } = this.props;
+    const { books, handleShelf } = this.props;
 
     return (
       <ol className="books-grid">
@@ -31,8 +26,8 @@ class ListBooks extends React.Component {
                 />
                 <div className="book-shelf-changer">
                   <select
-                    value=""
-                    onChange={e => this.handleChange(book.id, book.shelf, e)}
+                    value=''
+                    onChange={e => handleShelf(book.id, book.shelf, e)}
                   >
                     <option value="none" disabled>
                       Move to...
@@ -54,8 +49,9 @@ class ListBooks extends React.Component {
   }
 }
 
-ListBooks.propTypes = {
-  books: PropTypes.array
+Books.propTypes = {
+  books: PropTypes.array,
+  handleShelf: PropTypes.func
 };
 
-export default ListBooks;
+export default Books;
