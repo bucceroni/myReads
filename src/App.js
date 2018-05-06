@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import * as BooksAPI from "./utils/BooksAPI";
 
@@ -24,15 +24,13 @@ class App extends React.Component {
 
   getShelfBooks = () => {
     BooksAPI.getAll().then(books =>
-      books.map(
-        book =>
-          this.setState({
-            currentlyReading: books.filter(b => b.shelf === "currentlyReading")
-          }),
+      books.map(book =>
         this.setState({
-          wantToRead: books.filter(b => b.shelf === "wantToRead")
-        }),
-        this.setState({ read: books.filter(b => b.shelf === "read") })
+          books: books,
+          currentlyReading: books.filter(b => b.shelf === "currentlyReading"),
+          wantToRead: books.filter(b => b.shelf === "wantToRead"),
+          read: books.filter(b => b.shelf === "read")
+        })
       )
     );
   };
@@ -59,22 +57,12 @@ class App extends React.Component {
           exact
           path="/"
           render={() => (
-            <div className="list-books">
-              <div className="list-books-title">
-                <h1>MyReads</h1>
-              </div>
-              <div className="list-books-content">
-                <Shelf
-                  currentlyReading={currentlyReading}
-                  wantToRead={wantToRead}
-                  read={read}
-                  handleShelf={this.handleShelf}
-                />
-                <div className="open-search">
-                  <Link to="/search">Add a book</Link>
-                </div>
-              </div>
-            </div>
+            <Shelf
+              currentlyReading={currentlyReading}
+              wantToRead={wantToRead}
+              read={read}
+              handleShelf={this.handleShelf}
+            />
           )}
         />
         <Route
