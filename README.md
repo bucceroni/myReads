@@ -33,5 +33,10 @@ Estante de livros, permite o usuário selecionar e classificar os livros que leu
 * React-Router
 * PropTypes
 
-  <hr />
- 
+<hr>
+
+## Deploy
+
+* Heroku
+    - Aplicação disponível em:
+    - `https://front-myreads.herokuapp.com/`
